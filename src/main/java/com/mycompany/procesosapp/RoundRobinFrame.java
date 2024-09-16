@@ -47,6 +47,8 @@ public class RoundRobinFrame extends javax.swing.JFrame {
     txtQuantum = new javax.swing.JTextField();
     jScrollPane2 = new javax.swing.JScrollPane();
     tblRoundRobin = new javax.swing.JTable();
+    btnLimpiarProcesos = new javax.swing.JButton();
+    btnEliminarUltimo = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -96,6 +98,22 @@ public class RoundRobinFrame extends javax.swing.JFrame {
 
     jScrollPane2.setViewportView(tblRoundRobin);
 
+    btnLimpiarProcesos.setText("Limpiar Procesos");
+    btnLimpiarProcesos.addActionListener(
+        new java.awt.event.ActionListener() {
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnLimpiarProcesosActionPerformed(evt);
+          }
+        });
+
+    btnEliminarUltimo.setText("Eliminar Ultimo proceso");
+    btnEliminarUltimo.addActionListener(
+        new java.awt.event.ActionListener() {
+          public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnEliminarUltimoActionPerformed(evt);
+          }
+        });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -130,7 +148,6 @@ public class RoundRobinFrame extends javax.swing.JFrame {
                                                     .addComponent(lblQuantum)
                                                     .addGap(246, 246, 246)
                                                     .addComponent(jLabel1))
-                                            .addComponent(jLabel2)
                                             .addGroup(
                                                 layout
                                                     .createSequentialGroup()
@@ -154,7 +171,12 @@ public class RoundRobinFrame extends javax.swing.JFrame {
                                                                 javax.swing.GroupLayout
                                                                     .PREFERRED_SIZE))
                                                     .addGap(38, 38, 38)
-                                                    .addComponent(btnAgregarProceso))))
+                                                    .addComponent(btnAgregarProceso)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(btnEliminarUltimo)
+                                                    .addGap(28, 28, 28)
+                                                    .addComponent(btnLimpiarProcesos))
+                                            .addComponent(jLabel2)))
                             .addGroup(
                                 layout
                                     .createSequentialGroup()
@@ -195,7 +217,7 @@ public class RoundRobinFrame extends javax.swing.JFrame {
                         javax.swing.GroupLayout.PREFERRED_SIZE,
                         javax.swing.GroupLayout.DEFAULT_SIZE,
                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(10, 10, 10)
+                    .addGap(12, 12, 12)
                     .addComponent(jLabel2)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(
@@ -206,7 +228,9 @@ public class RoundRobinFrame extends javax.swing.JFrame {
                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                 javax.swing.GroupLayout.DEFAULT_SIZE,
                                 javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAgregarProceso))
+                            .addComponent(btnAgregarProceso)
+                            .addComponent(btnEliminarUltimo)
+                            .addComponent(btnLimpiarProcesos))
                     .addPreferredGap(
                         javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                         javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -224,10 +248,28 @@ public class RoundRobinFrame extends javax.swing.JFrame {
                         javax.swing.GroupLayout.PREFERRED_SIZE,
                         302,
                         javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)));
+                    .addContainerGap(68, Short.MAX_VALUE)));
 
     pack();
   } // </editor-fold>//GEN-END:initComponents
+
+  private void btnLimpiarProcesosActionPerformed(
+      java.awt.event.ActionEvent evt) { // GEN-FIRST:event_btnLimpiarProcesosActionPerformed
+    try {
+      processModel.setRowCount(0);
+      pList.clear();
+    } catch (Exception e) {
+    }
+  } // GEN-LAST:event_btnLimpiarProcesosActionPerformed
+
+  private void btnEliminarUltimoActionPerformed(
+      java.awt.event.ActionEvent evt) { // GEN-FIRST:event_btnEliminarUltimoActionPerformed
+    try {
+      processModel.setRowCount(processModel.getRowCount() - 1);
+      pList.remove(pList.size() - 1);
+    } catch (Exception e) {
+    }
+  } // GEN-LAST:event_btnEliminarUltimoActionPerformed
 
   private void txtProcesoActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_txtProcesoActionPerformed
@@ -247,6 +289,7 @@ public class RoundRobinFrame extends javax.swing.JFrame {
 
   private void btnStartRRActionPerformed(
       java.awt.event.ActionEvent evt) { // GEN-FIRST:event_btnStartRRActionPerformed
+    roundRobinModel.setRowCount(0);
     int quantum;
     try {
       quantum = Integer.parseInt(txtQuantum.getText());
@@ -391,6 +434,8 @@ public class RoundRobinFrame extends javax.swing.JFrame {
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton btnAgregarProceso;
+  private javax.swing.JButton btnEliminarUltimo;
+  private javax.swing.JButton btnLimpiarProcesos;
   private javax.swing.JButton btnStartRR;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
