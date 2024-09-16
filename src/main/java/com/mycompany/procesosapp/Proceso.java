@@ -26,7 +26,7 @@ public class Proceso {
   }
 
   @Override
-  protected Object clone() {
+  protected Proceso clone() {
     return new Proceso(this.time, this.name);
   }
 }
