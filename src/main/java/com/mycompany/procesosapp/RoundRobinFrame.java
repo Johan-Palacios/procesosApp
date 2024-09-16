@@ -199,7 +199,6 @@ public class RoundRobinFrame extends javax.swing.JFrame {
     int lastTE = 0;
     int sumTE = 0;
     int iterations = 0;
-    int lastTime = 0;
     String lastProcessString = "";
     String currentProcessString = "";
     ArrayList<Proceso> rrListProcesos = new ArrayList<Proceso>();
@@ -221,7 +220,6 @@ public class RoundRobinFrame extends javax.swing.JFrame {
           TE += 0;
           lastTE = proceso.getTime();
           sumTE += 0;
-          lastTime = proceso.getTime();
           proceso.setTime(0);
 
           roundRobinModel.addRow(new Object[]{proceso.getName(), lastTE, 0});
@@ -263,7 +261,6 @@ public class RoundRobinFrame extends javax.swing.JFrame {
           TE += lastTE;
           lastTE = proceso.getTime();
           sumTE += TE;
-          lastTime = proceso.getTime();
           proceso.setTime(0);
 
           roundRobinModel.addRow(new Object[]{proceso.getName(), lastTE, TE});
