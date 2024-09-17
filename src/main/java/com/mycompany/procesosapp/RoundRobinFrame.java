@@ -383,7 +383,7 @@ public class RoundRobinFrame extends javax.swing.JFrame {
       }
     }
     JOptionPane.showMessageDialog(
-        this, "El TE Promedio es de: " + (double) sumTE / (double) iterations);
+        this, "El TE Promedio es de: " + sumTE + "/" + iterations + "=" + (double) sumTE / (double) iterations);
   } // GEN-LAST:event_btnStartRRActionPerformed
 
   private void txtQuantumActionPerformed(
