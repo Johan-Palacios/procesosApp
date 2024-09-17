@@ -47,7 +47,7 @@ public class Menu extends javax.swing.JFrame {
         btnFIFO.setBackground(new java.awt.Color(204, 204, 204));
         btnFIFO.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnFIFO.setForeground(new java.awt.Color(255, 0, 0));
-        btnFIFO.setText("FIFO");
+        btnFIFO.setText("FCFS");
         btnFIFO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFIFOActionPerformed(evt);
